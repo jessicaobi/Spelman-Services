@@ -1,8 +1,11 @@
+// Service Categories
 export const categories = [
     { name: "Tutoring", icon: "￿", count: 15 },
     { name: "Hair & Beauty", icon: "￿", count: 12 },
     { name: "Design", icon: "￿", count: 8 }
 ]
+
+
 export const providers = [
     {
         id: 1,
