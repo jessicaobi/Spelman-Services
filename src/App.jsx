@@ -13,13 +13,13 @@ import ServiceCard from "./Components/ServiceCard"
 
 import './App.css'
 function App() {
-const [searchTerm, setSearchTerm] = useState('')
-const [selectedCategory, setSelectedCategory] = useState('All')
-return (
-<div>
-<Header onSearch={setSearchTerm} />
-<Hero title="SpelmanServices" />
-{/* Render categories and providers */}
-</div>
-)
+  const [searchTerm, setSearchTerm] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState('All')
+  return (
+    <div>
+      <Header onSearch={setSearchTerm} />
+      <Hero title="SpelmanServices" />
+      {/* Render categories and providers */}
+    </div>
+  )
 }
