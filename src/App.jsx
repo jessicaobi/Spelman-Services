@@ -17,6 +17,7 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [selectedProvider, setSelectedProvider] = useState(null)
 
+
   // Whenever the Contact is clicked, it sets the selected provider to whatever provider was clicked
   const onContact = (provider) => {
     setSelectedProvider(provider)
@@ -47,9 +48,12 @@ function App() {
 
   return (
     <div>
-      <Header onSearch={setSearchTerm} />
-      <Hero title="SpelmanServices" />
-      {/* Render categories and providers */}
+      <Header onSearch={setSearchTerm}
+      searchTerm = {searchTerm} 
+      searchFunction = {searchFunction}/>
+      <Hero
+
+        welcomeMessage={"Welcome to Spelman Services! This page is dedicated for students to promote their own services!"} />
 
 
       <button onClick={() => setSelectedCategory("Tutoring")}>Tutoring</button>
@@ -59,12 +63,18 @@ function App() {
 
 
       <div>
-        <input
-          type="text"
-          placeholder="Search"
-          value={searchTerm}
-          onChange={searchFunction}
-        />
+
+
+        {/* Mapping through all of the services */}
+        <div className="services">
+          {categories.map(serviceCategory => (
+            <ServiceCard
+              key={serviceCategory.name}
+              serviceCategory={serviceCategory}
+            />
+          ))}
+        </div>
+
         <div>
           {filteredSearch.map(provider => (
             <ProviderCard
@@ -76,27 +86,6 @@ function App() {
         </div>
       </div>
 
-      {/* Mapping through all of the services */}
-      <div className="services">
-        {categories.map(serviceCategory => (
-          <ServiceCard
-            key={serviceCategory.name}
-            serviceCategory={serviceCategory}
-          />
-        ))}
-      </div>
-
-
-      {/* Mapping through all of the providers
-      <div className="providers">
-        {providers.map(provider => (
-          <ProviderCard
-            key={provider.id}
-            provider={provider}
-            onContact= {onContact}
-          />
-        ))}
-      </div> */}
 
       <div className="providers">
         {filteredProviders.map(provider => (
@@ -114,10 +103,14 @@ function App() {
       {/* The key is necessary because without it, whenever the user tried to click on contact on another provider, a new form would not populate */}
       {/* The key shows that they have different instances of a form being submitted */}
       {selectedProvider && (
-        <ContactForm 
-        key = {selectedProvider.id}
-        provider={selectedProvider} onClose={closeContact} />
+        <ContactForm
+          key={selectedProvider.id}
+          provider={selectedProvider} onClose={closeContact} />
       )}
+
+        <Footer
+
+        spelmanMessage={"Checkout more general information about Spelman College at: https://www.spelman.edu/"} />
     </div>
   )
 }

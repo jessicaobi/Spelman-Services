@@ -1,11 +1,12 @@
 import { useState } from 'react'
 
 
-function Footer (){
+function Footer (spelmanMessage){
 
     return (
         <div>
-
+                        <p>{spelmanMessage.spelmanMessage}</p>
+            
         </div>
     )
 }
