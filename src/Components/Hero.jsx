@@ -5,7 +5,7 @@ function Hero (){
 
     return (
         <div>
-            
+
         </div>
     )
 }

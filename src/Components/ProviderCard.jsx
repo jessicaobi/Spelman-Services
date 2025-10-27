@@ -1,5 +1,12 @@
 function ProviderCard({ provider, onContact }) {
 
+      const handleContact = (provider) => {
+    <ContactForm
+      provider = {provider}
+    />
+  }
+
+  
     return (
         <div className="card">
             <img src={provider.image} alt={provider.name} />

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import logo from "../assets/spelman-college-logo.png";
 
 
 function Header (){
@@ -6,7 +7,8 @@ function Header (){
     return (
         <div>
             <div className = "logo">
-                <p>Logo Placeholder</p>
+              <img src={logo} alt="codepath logo" />
+
             </div>
 
             <div className = "searchBar">
