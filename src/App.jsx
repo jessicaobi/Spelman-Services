@@ -66,7 +66,7 @@ function App() {
 
 
         {/* Mapping through all of the services */}
-        <div className="services">
+        <div className="card-grid-seperate">
           {categories.map(serviceCategory => (
             <ServiceCard
               key={serviceCategory.name}
@@ -75,7 +75,7 @@ function App() {
           ))}
         </div>
 
-        <div>
+        <div className='card-grid'>
           {filteredSearch.map(provider => (
             <ProviderCard
               key={provider.id}
@@ -87,7 +87,7 @@ function App() {
       </div>
 
 
-      <div className="providers">
+      <div className="card-grid">
         {filteredProviders.map(provider => (
           <ProviderCard
             key={provider.id}
