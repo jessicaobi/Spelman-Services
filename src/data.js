@@ -13,7 +13,7 @@ export const providers = [
         service: "Math Tutoring",
         price: "$25/hour",
         category: "Tutoring",
-        image: "https://via.placeholder.com/150"
+        image: "https://media.istockphoto.com/id/1363069809/photo/black-educator-working-with-multiracial-student-in-classroom.jpg?s=612x612&w=0&k=20&c=VutUQdWHrswlpRq7AWhH-YZMJqPQ_R8LUJIEhl1vvNo="
     },
     {
         id: 2,
@@ -21,7 +21,7 @@ export const providers = [
         service: "Hair Braiding",
         price: "$50",
         category: "Hair & Beauty",
-        image: "https://via.placeholder.com/150"
+        image: "https://media.istockphoto.com/id/1952511070/photo/home-hairstyling-with-braids.jpg?s=612x612&w=0&k=20&c=_DiVNHNMGwsbUcHvzOwWB7pxxhM3a92mBTn3T_hOLrA="
     },
     {
         id: 3,
@@ -29,7 +29,7 @@ export const providers = [
         service: "Computer Science Tutoring",
         price: "$15/hour",
         category: "Tutoring",
-        image: "https://via.placeholder.com/150"
+        image: "https://as1.ftcdn.net/jpg/05/35/76/26/1000_F_535762674_jDFTKH59ObscGPTuXWNYvA0eSeFFDMQJ.jpg"
     },
     {
         id: 4,
@@ -37,7 +37,7 @@ export const providers = [
         service: "Tailoring Services",
         price: "$30/hour",
         category: "Design",
-        image: "https://via.placeholder.com/150"
+        image: "https://www.shutterstock.com/image-photo/young-serious-black-woman-casualwear-260nw-2151696513.jpg"
     },
     {
         id: 5,
@@ -45,7 +45,7 @@ export const providers = [
         service: "Model Training",
         price: "$25/hour",
         category: "Design",
-        image: "https://via.placeholder.com/150"
+        image:"https://www.shutterstock.com/image-photo/elegant-girl-on-beige-background-600nw-339927899.jpg"
     },
     {
         id: 6,
@@ -53,6 +53,6 @@ export const providers = [
         service: "Nails",
         price: "$30/hour",
         category: "Hair & Beauty",
-        image: "https://via.placeholder.com/150"
+        image: "https://media.istockphoto.com/id/1454729477/photo/african-american-nail-salon.jpg?s=612x612&w=0&k=20&c=JpSfW6kXHXc3lAf7HYrh2cpi2e3sRHTxoS4Im884qIM="
     }
 ]

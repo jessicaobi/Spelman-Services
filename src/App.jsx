@@ -35,7 +35,7 @@ function App() {
     // Setting the filtered search to whatever is typed in by the user
     // The lowercase function is to considered all cases
     const filteredSearch = searchTerm === "" ||
-      provider.name.toLowerCase().includes(searchTerm.toLowerCase());
+      provider.service.toLowerCase().includes(searchTerm.toLowerCase());
     return filteredCategory && filteredSearch;
 
   })
