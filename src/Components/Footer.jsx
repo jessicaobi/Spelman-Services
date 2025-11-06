@@ -1,12 +1,10 @@
-import { useState } from 'react'
+// Displaying the message passed from App.jsx
 
-
-function Footer (spelmanMessage){
+function Footer({ spelmanMessage }) {
 
     return (
         <div>
-                        <p>{spelmanMessage.spelmanMessage}</p>
-            
+            <p>{spelmanMessage}</p>
         </div>
     )
 }

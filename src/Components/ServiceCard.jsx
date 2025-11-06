@@ -1,19 +1,18 @@
-import { useState } from 'react'
+// Service card component to display the different services
 
-
-function ServiceCard ({serviceCategory}){
+function ServiceCard({ serviceCategory }) {
 
     return (
         <div>
-            <div className = "name">
+            <div className="name">
                 {serviceCategory.name}
             </div>
 
-            <div className = "icon">
+            <div className="icon">
                 {serviceCategory.icon}
             </div>
 
-            <div className = "count">
+            <div className="count">
                 {serviceCategory.count}
             </div>
         </div>

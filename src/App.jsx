@@ -1,71 +1,74 @@
+// Importing the useState hook from the react library
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-
+// Importing all of the components necessary for the project from the components folder
 import ContactForm from "./Components/ContactForm"
 import Footer from "./Components/Footer"
 import Header from "./Components/Header"
 import Hero from "./Components/Hero"
 import ProviderCard from "./Components/ProviderCard"
 import ServiceCard from "./Components/ServiceCard"
+// Importing the categories and providers from the datas javascript file
 import { categories, providers } from "./data"
-
+// Importing the CSS for the project
 import './App.css'
 
 function App() {
+  // Initializing the search term, selected categrory, and selected provider for filtering
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [selectedProvider, setSelectedProvider] = useState(null)
 
 
-  // Whenever the Contact is clicked, it sets the selected provider to whatever provider was clicked
+  // Whenever the Contact is clicked, it sets the selected provider to whatever provider was clicked. This will be used later to pull up the contact form
   const onContact = (provider) => {
     setSelectedProvider(provider)
   }
 
-  const filteredProviders = providers.filter(provider => {
-    if (selectedCategory === "All") {
-      return true;
+  // Whenever we close the contact, we need to clear the selected provider, otherwise the first initally clicked selected provider will continuously pop up
+  const closeContact = () => setSelectedProvider(null)
 
-    }
-    return provider.category === selectedCategory;
+  // Filtering through the providers
+  const filteredProviders = providers.filter(provider => {
+
+    // Setting the filtered category to whatever is selected by the user
+    const filteredCategory = selectedCategory === "All" || provider.category === selectedCategory;
+    // Setting the filtered search to whatever is typed in by the user
+    // The lowercase function is to considered all cases
+    const filteredSearch = searchTerm === "" ||
+      provider.name.toLowerCase().includes(searchTerm.toLowerCase());
+    return filteredCategory && filteredSearch;
 
   })
 
+  //  Whenever something is typed into the search box, this is updating the value of the searchTerm variable
   const searchFunction = (event) => {
     setSearchTerm(event.target.value);
   }
 
-  const filteredSearch = providers.filter(
-    provider =>
-      provider.name.toLowerCase().includes(searchTerm.toLowerCase())
-  )
-
-
-
-  const closeContact = () => setSelectedProvider(null)
-
-
   return (
     <div>
+      {/* Sending the search related values to the Header component */}
       <Header onSearch={setSearchTerm}
-      searchTerm = {searchTerm} 
-      searchFunction = {searchFunction}/>
+        searchTerm={searchTerm}
+        searchFunction={searchFunction} />
+
+      {/* Sending the welcome message to the Hero component */}
       <Hero
 
         welcomeMessage={"Welcome to Spelman Services! This page is dedicated for students to promote their own services!"} />
 
 
+      {/* For whatever button is clicked, it is updating the valued of the selectedCategory to that */}
       <button onClick={() => setSelectedCategory("Tutoring")}>Tutoring</button>
       <button onClick={() => setSelectedCategory("Hair & Beauty")}>Hair & Beauty</button>
       <button onClick={() => setSelectedCategory("Design")}>Design</button>
-      <button onClick={() => setSelectedCategory("'All'")}>All</button>
+      <button onClick={() => setSelectedCategory("All")}>All</button>
 
 
       <div>
 
 
-        {/* Mapping through all of the services */}
+        {/* Mapping through all of the types of services services */}
         <div className="card-grid-seperate">
           {categories.map(serviceCategory => (
             <ServiceCard
@@ -75,18 +78,10 @@ function App() {
           ))}
         </div>
 
-        <div className='card-grid'>
-          {filteredSearch.map(provider => (
-            <ProviderCard
-              key={provider.id}
-              provider={provider}
-              onContact={onContact}
-            />
-          ))}
-        </div>
       </div>
 
 
+      {/* Mapping through all all of the providers */}
       <div className="card-grid">
         {filteredProviders.map(provider => (
           <ProviderCard
@@ -108,7 +103,8 @@ function App() {
           provider={selectedProvider} onClose={closeContact} />
       )}
 
-        <Footer
+      {/* Sending a message to the footer */}
+      <Footer
 
         spelmanMessage={"Checkout more general information about Spelman College at: https://www.spelman.edu/"} />
     </div>
